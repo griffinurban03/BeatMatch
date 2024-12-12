@@ -18,7 +18,7 @@ public class EventsHub {
     private String eventHost;
 
     @Column(nullable = false)
-    private LocalDateTime eventDate;
+    private String eventDate;
 
     @Column
     private String eventLocation;
@@ -36,7 +36,7 @@ public class EventsHub {
     // Constructors
     public EventsHub() {}
 
-    public EventsHub(String eventName, String eventHost, LocalDateTime eventDate, String eventLocation, int eventThumbnail, int eventCost) {
+    public EventsHub(String eventName, String eventHost, String eventDate, String eventLocation, int eventThumbnail, int eventCost) {
         this.eventName = eventName;
         this.eventHost = eventHost;
         this.eventDate = eventDate;
@@ -70,11 +70,11 @@ public class EventsHub {
         this.eventHost = description;
     }
 
-    public LocalDateTime getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDateTime date) {
+    public void setEventDate(String date) {
         this.eventDate = date;
     }
 

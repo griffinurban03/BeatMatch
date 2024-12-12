@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -74,13 +76,32 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         holder.eventThumbnail.setImageDrawable(eventThumbnail);
         holder.cost.setText("$" + String.valueOf(cost));
 
-        holder.executorService = Executors.newSingleThreadExecutor();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Make a toast saying which event was clicked
                 Toast.makeText(v.getContext(), "You've RSVP'd to " + eventName + "!", Toast.LENGTH_SHORT).show();
+
+                // send a POST request
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject json = new JSONObject();
+
+                            json.put("userID", user.getUserID());
+                            json.put("eventName", eventName);
+
+
+
+                            String result = sendRequest("POST", "/events/rsvps", json.toString());
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+                });
 
                 // TODO add event to RSVP table
             }

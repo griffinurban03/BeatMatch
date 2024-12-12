@@ -84,8 +84,8 @@ public class AddEventActivity extends AppCompatActivity implements Request{
                 try {
                     eventJSON.put("eventName", eventName);
                     eventJSON.put("eventHost", eventHost);
-                    eventJSON.put("eventLocation", eventLocation);
                     eventJSON.put("eventDate", eventDate);
+                    eventJSON.put("eventLocation", eventLocation);
                     eventJSON.put("eventThumbnail", eventImage);
                     eventJSON.put("eventCost", eventCost);
                 } catch (JSONException e) {

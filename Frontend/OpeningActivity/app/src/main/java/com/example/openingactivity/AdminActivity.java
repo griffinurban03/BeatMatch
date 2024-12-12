@@ -259,7 +259,7 @@ public class AdminActivity extends AppCompatActivity implements Request {
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        String result = sendRequest("DELETE", "/events/delete/" + eventID, null);
+                        String result = sendRequest("DELETE", "/events/" + eventID, null);
                         //log the result
                     }
                 });
@@ -284,14 +284,15 @@ public class AdminActivity extends AppCompatActivity implements Request {
             /**
              * deletes the playlist from the database
              * @param playlistID the playlist id
-             *                TODO have a backend create the method for deleting the playlist
+             *
              */
             private void deletePlaylist(String playlistID) {
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        String result = sendRequest("DELETE", "/playlists/delete/" + playlistID, null);
+                        String result = sendRequest("DELETE", "/playlistEntry/deletePlaylist/" + playlistID, null);
                         //log the result
+                        System.out.println(result);
                     }
                 });
             }

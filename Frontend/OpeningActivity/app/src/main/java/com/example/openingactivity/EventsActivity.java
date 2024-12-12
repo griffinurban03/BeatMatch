@@ -160,7 +160,7 @@ public class EventsActivity extends AppCompatActivity implements Request {
                         String eventHost = event.getString("eventHost");
                         String eventLocation = event.getString("eventLocation");
                         String eventDate = event.getString("eventDate");
-                        String eventThumbnail = event.getString("eventThumbnail");
+                        int eventThumbnail = event.getInt("eventThumbnail");
                         int eventCost = event.getInt("eventCost");
                         eventList.add(new Event(eventName, eventHost, eventLocation, eventDate, thumbnail1, eventCost));
                     }

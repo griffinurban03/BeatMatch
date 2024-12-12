@@ -50,7 +50,8 @@
             android:text="Send Message"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toStartOf="@id/addFriendsButton"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/addFriendsButton"
